@@ -1,0 +1,9 @@
+.PictureWall {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 0;
+}

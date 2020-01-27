@@ -1,0 +1,41 @@
+.Polaroid {
+    background: white;
+    padding: 10px 10px 20px 10px;
+    margin: 20px;
+    display: inline-block;
+
+    box-shadow: 0 1px 5px 0 #656565;
+
+    transform: rotate(1deg);
+    transition: all .2s ease-in-out;
+
+    * {
+        opacity: 0.85;
+    }
+
+    &-label {
+        margin-top: 10px;
+        color: red;
+        font-size: 20px;
+        font-family: 'Satisfy', cursive;
+    }
+
+    &-picture {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        object-position: 0 0;
+        border: 1px solid #C9C9C9;
+    }
+
+    &:nth-child(odd) {
+        transform: rotate(-1deg);
+    }
+
+    &:hover, &.focused {
+        transform: rotate(0);
+        * {
+            opacity: 1;
+        }
+    }
+}

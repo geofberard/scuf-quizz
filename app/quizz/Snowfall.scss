@@ -1,0 +1,61 @@
+@mixin snow($url, $topAnimation, $bottomAnimation, $duration){
+    background-image: url($url);
+    background-size: 150px;
+    background-repeat: repeat;
+
+    &.top {
+        animation: $topAnimation linear infinite both;
+        animation-duration: $duration;
+    }
+
+    &.bottom {
+        animation: $bottomAnimation linear infinite both;
+        animation-duration: $duration;
+    }
+}
+
+@mixin falling($name, $offsetX, $offsetY){
+    @keyframes #{$name} {
+        0% {
+            transform: translate3D($offsetX, $offsetY, 0);
+        }
+
+        100% {
+            transform: translate3D(-$offsetX, $offsetY + 100%, 0);
+        }
+    }
+}
+
+.Snowfall {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.Snow {
+    overflow: hidden;
+    position: absolute;
+    pointer-events: none;
+    top: 0; right: 0; bottom: 0; left: 0;
+    height: 100%;
+
+    &.near {
+        @include snow('/img/snow-large-075d267ecbc42e3564c8ed43516dd557.png', falling-near-top, falling-near-bottom, 25s);
+    }
+
+    &.mid {
+        @include snow('/img/snow-medium-0b8a5e0732315b68e1f54185be7a1ad9.png', falling-mid-top, falling-mid-bottom, 30s);
+    }
+
+    &.far {
+        @include snow('/img/snow-small-1ecd03b1fce08c24e064ff8c0a72c519.png', falling-back-top, falling-back-bottom, 35s);
+    }
+}
+
+@include falling("falling-near-bottom", 0, 0);
+@include falling("falling-near-top", 0, -100%);
+@include falling("falling-mid-bottom", -7.5%, 0);
+@include falling("falling-mid-top", -7.5%, -100%);
+@include falling("falling-back-bottom", 7.5%, 0);
+@include falling("falling-back-top", 7.5%, -100%);
