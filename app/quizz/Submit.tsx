@@ -1,6 +1,6 @@
 import * as React from "react";
 import {FC} from "react";
-import {Employee} from "./data/Employee";
+import {Person} from "./data/Person";
 import {AppBar, Backdrop, Button, CircularProgress, Modal, Toolbar, Typography} from "@material-ui/core";
 import SendIcon from '@material-ui/icons/Send';
 import NameDialog from "./NameDialog";
@@ -8,7 +8,7 @@ import ConfirmDialog from "./ConfirmDialog";
 
 import "./Submit.scss"
 
-const API_URL = "https://script.google.com/a/courtanet.net/macros/s/AKfycbzMbFQQREn2ymQtiOImRrVLdcKXfaJlqLtdgmyoBQ/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbz3JX7Pzfu9dT8GHqrpyFplTTPqrbVs3NbrsqHLCTZyx9PjJ2XN/exec";
 
 enum QuizzState {
     PICTURES,
@@ -18,11 +18,11 @@ enum QuizzState {
 }
 
 interface QuestionCollectorProps {
-    employees: Employee[];
+    persons: Person[];
     onSubmit:  () => void;
 }
 
-const Submit: FC<QuestionCollectorProps> = ({employees, onSubmit}) => {
+const Submit: FC<QuestionCollectorProps> = ({persons, onSubmit}) => {
     const [submitState, setSumbitState] = React.useState(QuizzState.PICTURES);
 
     const handleClose = () => {
@@ -31,7 +31,7 @@ const Submit: FC<QuestionCollectorProps> = ({employees, onSubmit}) => {
 
     const handleSubmit = (name: String) => {
         setSumbitState(QuizzState.WAITING);
-        const employeeParams = employees
+        const employeeParams = persons
             .filter(employee => employee.name)
             .map(employee => `${employee.id}=${employee.name.id}`)
             .join("&");
@@ -45,14 +45,14 @@ const Submit: FC<QuestionCollectorProps> = ({employees, onSubmit}) => {
             <AppBar position="fixed">
                 <Toolbar>
                     <Typography variant="h6" className="AppBar-title">
-                        Quizz de Noël
+                        Baby Scufette
                     </Typography>
                     <Button color="inherit" onClick={() => setSumbitState(QuizzState.NAME)}>
-                        Soumettre&nbsp;&nbsp;<SendIcon color="secondary"/>
+                        Je&nbsp;valide&nbsp;&nbsp;<SendIcon color="secondary"/>
                     </Button>
                 </Toolbar>
             </AppBar>
-            <NameDialog employees={employees}
+            <NameDialog persons={persons}
                         open={submitState === QuizzState.NAME}
                         onSubmit={handleSubmit}
                         onClose={handleClose} />

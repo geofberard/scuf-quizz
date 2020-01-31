@@ -41,15 +41,15 @@
     height: 100%;
 
     &.near {
-        @include snow('/img/snow-large-075d267ecbc42e3564c8ed43516dd557.png', falling-near-top, falling-near-bottom, 25s);
+        @include snow('/scuf-quizz/public/img/snow-large-075d267ecbc42e3564c8ed43516dd557.png', falling-near-top, falling-near-bottom, 25s);
     }
 
     &.mid {
-        @include snow('/img/snow-medium-0b8a5e0732315b68e1f54185be7a1ad9.png', falling-mid-top, falling-mid-bottom, 30s);
+        @include snow('/scuf-quizz/public/img/snow-medium-0b8a5e0732315b68e1f54185be7a1ad9.png', falling-mid-top, falling-mid-bottom, 30s);
     }
 
     &.far {
-        @include snow('/img/snow-small-1ecd03b1fce08c24e064ff8c0a72c519.png', falling-back-top, falling-back-bottom, 35s);
+        @include snow('/scuf-quizz/public/img/snow-small-1ecd03b1fce08c24e064ff8c0a72c519.png', falling-back-top, falling-back-bottom, 35s);
     }
 }
 

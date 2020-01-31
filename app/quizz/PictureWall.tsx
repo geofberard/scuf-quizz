@@ -1,20 +1,20 @@
 import * as React from 'react';
 import {FC} from 'react';
 import {Polaroid} from "./Polaroid";
-import {Employee} from "./data/Employee";
+import {Person} from "./data/Person";
 import {Name} from "./data/Name";
 import "./PictureWall.scss";
 
 interface PictureWallProps {
-    employees: Employee[],
-    updateName: (employee: Employee, name: Name) => void
+    persons: Person[],
+    updateName: (person: Person, name: Name) => void
 }
 
-export const PictureWall: FC<PictureWallProps> = ({employees, updateName}) => {
+export const PictureWall: FC<PictureWallProps> = ({persons, updateName}) => {
     return (
         <div className="PictureWall">
-            {employees.map(employee =>
-                <Polaroid employee={employee}
+            {persons.map(person =>
+                <Polaroid person={person}
                           onNameSelection={updateName}/>)
             }
         </div>

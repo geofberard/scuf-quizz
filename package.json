@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "webpack-dev-server --mode development --watch",
-    "build": "webpack -p --progress"
+    "build": "webpack -p --progress",
+    "deploy": "webpack --mode production && git add . && git commit -m Packaging && git push origin HEAD:gh-pages --force  && git reset HEAD~1 --hard"
   },
   "devDependencies": {
     "@material-ui/core": "4.9.0",

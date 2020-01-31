@@ -1,6 +1,6 @@
 import {Name} from "./Name";
 
-export interface Employee {
+export interface Person {
     id: string;
     picture: string;
     name?: Name;

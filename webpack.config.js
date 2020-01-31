@@ -3,12 +3,12 @@ var webpack = require('webpack');
 module.exports = {
     entry: [__dirname + "/app/main.tsx"],
     output: {
-        path: __dirname + '/public/',
+        path: __dirname,
         filename: 'index.js'
     },
     devServer: {
         inline: true,
-        contentBase: __dirname + '/public/',
+        contentBase: __dirname,
         compress: true,
         port: 8091
     },

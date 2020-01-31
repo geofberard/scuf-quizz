@@ -16,9 +16,12 @@ const ConfirmDialog: FC<ConfirmDialogProps> = ({open, onClose}) => {
                 onClose={onClose}
                 aria-labelledby="alert-dialog-slide-title"
                 aria-describedby="alert-dialog-slide-description">
-                <DialogTitle id="alert-dialog-slide-title">Voila, c'est terminé !</DialogTitle>
+                <DialogTitle id="alert-dialog-slide-title">Voilà c’est fini. C’était rapide non ?</DialogTitle>
                 <DialogContent>
-                    Les résultats seront communiqués plus tard.
+                    <img src="/img/done.gif"/>
+                </DialogContent>
+                <DialogContent>
+                    Mais les résultats seront communiqués plus tard...
                 </DialogContent>
                 <DialogActions>
                 </DialogActions>

@@ -2,32 +2,32 @@ import * as React from 'react';
 import {FC} from 'react';
 import {TextField} from "@material-ui/core";
 import {Autocomplete} from '@material-ui/lab';
-import {Employee} from "./data/Employee";
-import {allNames} from "./data/EmployeeData";
+import {Person} from "./data/Person";
+import {allNames} from "./data/PlayerData";
 import {Name} from "./data/Name";
 import "./Polaroid.scss"
 
 interface PolaroidProps {
-    employee: Employee,
-    onNameSelection: (employee: Employee, name: Name) => void
+    person: Person,
+    onNameSelection: (person: Person, name: Name) => void
 }
 
-export const Polaroid: FC<PolaroidProps> = ({employee, onNameSelection}) => {
+export const Polaroid: FC<PolaroidProps> = ({person, onNameSelection}) => {
     const [focused, setFocused] = React.useState(false);
 
     return (
         <div className={`Polaroid ${focused ? "focused" : ""}`}
              onClick={() => !focused ? setFocused(true) : ""}>
-            <img className={"Polaroid-picture"} src={"img/employee/" + employee.picture}/>
+            <img className={"Polaroid-picture"} src={"public/img/scufettes/" + person.picture}/>
             <div className={"Polaroid-label"}>
-                {!focused ? (employee.name ? employee.name.label : "Je suis ..." ) : (
+                {!focused ? (person.name ? person.name.label : "Je suis ..." ) : (
                     <Autocomplete
                         id="combo-box-demo"
                         options={allNames}
                         getOptionLabel={(name: Name) => name.label}
-                        value={employee.name}
+                        value={person.name}
                         onChange={(event, newValue) => {
-                            onNameSelection(employee, newValue);
+                            onNameSelection(person, newValue);
                             setFocused(false);
                         }}
                         renderInput={params => (

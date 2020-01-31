@@ -1,5 +1,5 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import {App} from "./App";
+import {Quizz} from "./quizz/Quizz";
 
-ReactDom.render(<App />, document.getElementById('app'));
+ReactDom.render(<Quizz />, document.getElementById('app'));

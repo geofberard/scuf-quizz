@@ -3,7 +3,7 @@ import {FC} from 'react';
 import {PictureWall} from "./PictureWall";
 import {Snowfall} from "./Snowfall";
 import Submit from "./Submit";
-import {useEmployeeData} from "./useEmployeeData";
+import {usePersonData} from "./usePersonData";
 import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
 
 import "./Quizz.scss"
@@ -20,13 +20,14 @@ const theme = createMuiTheme({
 });
 
 export const Quizz: FC = () => {
-    const [employees, updateName] = useEmployeeData();
+    const [persons, updateName] = usePersonData();
     return (
         <div className="Quizz">
+            Ttest
             <ThemeProvider theme={theme}>
-            <Submit employees={employees} onSubmit={console.log}/>
+            <Submit persons={persons} onSubmit={console.log}/>
             <Snowfall/>
-            <PictureWall employees={employees} updateName={updateName}/>
+            <PictureWall persons={persons} updateName={updateName}/>
             </ThemeProvider>
         </div>
     );

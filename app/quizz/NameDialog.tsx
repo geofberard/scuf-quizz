@@ -1,6 +1,6 @@
 import * as React from "react";
 import {FC} from "react";
-import {Employee} from "./data/Employee";
+import {Person} from "./data/Person";
 import {
     Button, CircularProgress,
     Dialog,
@@ -13,16 +13,16 @@ import {
 import "./Submit.scss"
 
 interface NameDialogProps {
-    employees: Employee[];
+    persons: Person[];
     open: boolean;
     onSubmit:  (name:string) => void;
     onClose:  () => void;
 }
 
-const NameDialog: FC<NameDialogProps> = ({employees, open, onSubmit, onClose}) => {
+const NameDialog: FC<NameDialogProps> = ({persons, open, onSubmit, onClose}) => {
     const [name, setName] = React.useState("");
-    const identified = employees.filter(e => e.name).length;
-    let complete = identified < employees.length;
+    const identified = persons.filter(e => e.name).length;
+    let complete = identified < persons.length;
 
     return (
             <Dialog
@@ -33,17 +33,10 @@ const NameDialog: FC<NameDialogProps> = ({employees, open, onSubmit, onClose}) =
                 aria-describedby="alert-dialog-slide-description">
                 <DialogTitle id="alert-dialog-slide-title">{complete ? "Attends un peu ..." : "Une dernière chose ..."}</DialogTitle>
                 <DialogContent>
-                    {complete ? (
-                        <>
-                            <DialogContentText>{identified === 0 ? `Aucune identification ...` : `Seulement ${identified} identifications ...`}</DialogContentText>
-                            <DialogContentText>{`Mais si tu veux quand même soumettre, il ne manque que ton nom :)`}</DialogContentText>
-                        </>
-                    ) : (
-                        <>
-                            <DialogContentText>{"Tu as identifié tout le monde !!!"}</DialogContentText>
-                            <DialogContentText>{`Il ne manque plus que ton nom :)`}</DialogContentText>
-                        </>
-                    )}
+                    <DialogContentText>Tu es sûre de ton choix ?</DialogContentText>
+                    <DialogContentText>
+                        Tu peux encore changer d’avis. Sinon il ne manque plus que ton prénom. :)
+                    </DialogContentText>
                     <TextField
                         autoFocus
                         margin="dense"
