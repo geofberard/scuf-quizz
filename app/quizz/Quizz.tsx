@@ -11,7 +11,7 @@ import "./Quizz.scss"
 const theme = createMuiTheme({
     palette: {
         primary: {
-            main: '#b72424',
+            main: '#2427b7',
         },
         secondary: {
             main: '#ffffff',
