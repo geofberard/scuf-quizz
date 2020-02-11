@@ -20,14 +20,16 @@ const theme = createMuiTheme({
 });
 
 export const Quizz: FC = () => {
-    const [persons, updateName] = usePersonData();
+    const [scorePersons] = usePersonData((p1, p2) => p2.name.score - p1.name.score);
+    const [foundPersons] = usePersonData((p1, p2) => p1.name.found - p2.name.found);
+
     return (
         <div className="Quizz">
-            Ttest
             <ThemeProvider theme={theme}>
-            <Submit persons={persons} onSubmit={console.log}/>
+            <Submit />
             <Snowfall/>
-            <PictureWall persons={persons} updateName={updateName}/>
+            <PictureWall persons={scorePersons} getLabel={person => `${person.name.label} (${person.name.score}%)`} label="Les résultats sont :"/>
+            <PictureWall persons={foundPersons} getLabel={person => `${person.name.label} (${person.name.found}%)`} label="Qui sont les plus difficiles à trouver ?"/>
             </ThemeProvider>
         </div>
     );
