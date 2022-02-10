@@ -21,7 +21,7 @@
     "autoprefixer-loader": "3.2.0",
     "awesome-typescript-loader": "5.2.1",
     "css-loader": "3.4.2",
-    "node-sass": "4.13.1",
+    "node-sass": "7.0.0",
     "postcss-loader": "3.0.0",
     "resolve-url-loader": "3.1.1",
     "sass-loader": "8.0.2",
